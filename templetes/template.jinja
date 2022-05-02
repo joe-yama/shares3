@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head lang="ja">
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>name</th>
+          <th>size</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sharing_object in sharing_objects -%}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>
+            <a href="{{ sharing_object.presigned_url }}" target="_blank">
+              {{ sharing_object.key }}
+            </a>
+          </td>
+          <td>{{ sharing_object.size }}</td>
+        </tr>
+        {% endfor -%}
+      </tbody>
+    </table>
+  </body>
+</html>

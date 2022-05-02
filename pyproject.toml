@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "shares3"
+version = "0.1.0"
+description = "generate html file to share your s3 objects"
+authors = ["joe-yama <s1r0mqme@gmail.com>"]
+license = "Apache-2.0"
+packages = [
+    { include = "shares3" }
+]
+
+#[tool.poetry.scripts]
+#gen-presigned-urls = "shares3.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Jinja2 = "^3.1.2"
+boto3 = "^1.22.4"
+
+[tool.poetry.dev-dependencies]
+pysen = {version = "^0.10.2", extras = ["lint"]}
+pytest = "^7.1.2"
+requests = "^2.27.1"
+beautifulsoup4 = "^4.11.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.10"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = false
+mypy_preset = "strict"
+line_length = 88
+py_version = "py39"
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
